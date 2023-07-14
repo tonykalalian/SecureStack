@@ -21,7 +21,7 @@ Follow these instructions to get started with SecureStack:
 1. Clone the repository: `git clone https://github.com/tonykalalian/SecureStack.git`
 2. Install dependencies: `npm install`
 3. Configure environment variables: Update the `.env` file with your specific settings.
-4. Run the application: `npm start`
+4. Run the application: `nodemon app.js`
 
 ## 📚 Documentation
 
