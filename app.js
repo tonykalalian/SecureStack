@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const encrypt = require("mongoose-encryption");
+const md5 = require("md5");
 require("dotenv").config();
 const app = express();
 const mongoose = require("mongoose");
@@ -18,9 +18,6 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
 });
-const secret = process.env.SECRET;
-
-userSchema.plugin(encrypt, { secret: secret, encryptedFields: ["password"] });
 
 const User = new mongoose.model("User", userSchema);
 app.get("/", (req, res) => {
@@ -36,7 +33,7 @@ app.post("/register", async (req, res) => {
   try {
     const newUser = new User({
       email: req.body.username,
-      password: req.body.password,
+      password: md5(req.body.password),
     });
     await newUser.save();
     res.render("secrets");
@@ -49,7 +46,7 @@ app.post("/login", (req, res) => {
   const password = req.body.password;
   User.findOne({ email: username })
     .then((foundUser) => {
-      if (foundUser && foundUser.password === password) {
+      if (foundUser && foundUser.password === md5(password)) {
         res.render("secrets");
       } else {
         res.send("Invalid username or password");
