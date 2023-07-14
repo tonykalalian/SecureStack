@@ -41,7 +41,7 @@ Please ensure that your code adheres to the established coding guidelines and pa
 
 ## 📄 License
 
-SecureStack is released under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/tonykalalian/SecureStack/blob/main/LICENSE) file for more details.
+SecureStack is released under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/tonykalalian/SecureStack/blob/main/LICENSE.md) file for more details.
 
 ## 📧 Contact
 
