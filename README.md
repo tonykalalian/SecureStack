@@ -25,7 +25,7 @@ Follow these instructions to get started with SecureStack:
 
 ## 📚 Documentation
 
-For detailed documentation and usage examples, please refer to the [SecureStack Wiki](https://github.com/tonykalalian/SecureStack/blob/main/LICENSE.md).
+For detailed documentation and usage examples, please refer to the [SecureStack Wiki](https://github.com/tonykalalian/SecureStack/wiki).
 
 ## 🤝 Contributing
 
