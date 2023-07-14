@@ -9,7 +9,7 @@
 
 - 💡 **Mongoose Encryption**: Protect sensitive data with strong encryption using Mongoose.
 - 🗝️ **Environment Variable Management**: Safely manage environment variables for sensitive information.
-- 🔐 **Password Hashing**: Hash and securely store user passwords for enhanced security.
+- 🔐 **Password Salting and Hashing**: Hash and securely store user passwords for enhanced security using bcrypt.
 - 🚪 **Passport.js Authentication**: Implement robust authentication mechanisms using Passport.js.
 - 🍪 **Cookies and Sessions**: Manage user sessions and handle cookies securely.
 - 🌐 **OAuth for Google Sign-In**: Enable seamless and secure authentication using Google OAuth.
