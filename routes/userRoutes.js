@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const md5 = require("md5");
-const User = require("../models/User");
-const userService = require("../services/userService");
+const userController = require("../controllers/userController");
 
 router.get("/", (req, res) => {
   res.render("home");
@@ -16,8 +14,7 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
-router.post("/register", userService.registerUser);
-
-router.post("/login", userService.loginUser);
+router.post("/register", userController.register);
+router.post("/login", userController.login);
 
 module.exports = router;

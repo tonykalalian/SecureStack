@@ -1,25 +1,28 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const mongoose = require("mongoose");
 require("dotenv").config();
-
 const app = express();
-const PORT = process.env.PORT || 3000;
+const mongoose = require("mongoose");
+const userRoutes = require("./routes/userRoutes");
 
-// Database connection
-mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true });
-
-// Set up middleware
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Import and use routes
-const userRoutes = require("./routes/userRoutes");
+mongoose
+  .connect(process.env.MONGODB_URL, { useNewUrlParser: true })
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });
+
+// Use routes
 app.use("/", userRoutes);
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
