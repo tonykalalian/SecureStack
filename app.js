@@ -52,7 +52,7 @@ passport.use(
         let user = await User.findOne({ googleId: profile.id });
         if (!user) {
           const newUser = new User({
-            email: profile.emails[0].value,
+            email: profile.emails[0].value, // Assuming the email is available in profile.emails[0].value
             googleId: profile.id,
           });
           user = await newUser.save();
@@ -157,7 +157,7 @@ app.post("/login", (req, res) => {
 app.get("/logout", function (req, res) {
   req.logout(function (err) {
     if (err) {
-      return err;
+      console.log(err);
     }
     res.redirect("/");
   });
